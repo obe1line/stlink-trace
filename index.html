@@ -31,32 +31,31 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+        <h3>Introduction</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Stlink-trace is a utility to log ITM printf traces from an ST-Link V2 JTAG adapter. It fetches data transmitted from the ITM stimulus port 0 of the STM32Fxxx series microcontrollers.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<h3>Building the utility</h3>
+
+<p>Libusbx is used to communicate with the ST-Link, so this is a pre-requisite.</p>
+<p>The source contains an Eclipse project which can be imported. Alternatively use the following command line to build it:</p>
+
+<pre><code>$ gcc stlink-trace.c -lusb-1.0 -L/usr/local/lib -o stlink-trace
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>A source file showing the triggering of the ITM port is included in the Examples folder. A Waveshare Open107Z development board was used to run this, but an existing project can be modified by using the SendMsgViaITM function.
+Although the ITM supports 1,2 or 4 bytes trace data, a change to the utility would be required to support anything other than the 1 byte trace.
+</p>
 
-<h3>Designer Templates</h3>
+<h3>Running it</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>By default, the microcontroller is expected to be an STM32F107 running at 72MHz. For other versions, you may need to change the stlink-trace source to use the correct CLOCK_DIVISOR. E.g. STM32F207Z runs at 120MHz.</p>
+<p>Running the utility will generate two files: trace and full-trace. The difference is that the full-trace includes error packets that were received (handling this packet is on the TODO list and relates to a trace packet length of 0xF8xx).</p>
 
-<h3>Rather Drive Stick?</h3>
+<h3>Support</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>If the wiki doesn't cover any questions you may have, email me at: obe1line AT trisync.net.au</p>
 
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
       </section>
     </div>
 
@@ -67,8 +66,6 @@ $ git checkout gh-pages
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-
-    
 
   </body>
 </html>
