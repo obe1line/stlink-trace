@@ -6,6 +6,7 @@
  *
  * Parts of the ST-Link code comes from the stlink project:
  * https://github.com/texane/stlink
+ *
  */
 
 #ifndef STLINK_TRACE_H_

@@ -5,11 +5,12 @@
   *      Author: Chris Storah
   * Parts of the ST-Link code comes from the stlink project:
   * https://github.com/texane/stlink
+  *
+  * Requires an updated ST-Link V2 firmware:
+  * Use the STM32 ST-LINK Utility to update to the latest version:
+  * (V2.J17.S4 JTAG+SWIM Debugger)
+  * See: http://www.st.com/web/en/catalog/tools/PF258168
   */
-
-// Requires an updated ST-Link V2 firmware:
-// Use the STM32 ST-LINK Utility to update to the latest version (V2.J17.S4 JTAG+SWIM Debugger)
-// See: http://www.st.com/web/en/catalog/tools/PF258168
 
 #define HEXDUMP 0
 #define ASYNC	0
