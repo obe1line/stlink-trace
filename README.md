@@ -5,6 +5,8 @@ ST-Link V2 ITM trace utility
 
 This utility can be used with an ST-Link V2 JTAG device connected to an STM32Fxxx series microcontroller to capture the ITM data sent via the printf port (ITM stimulus port 0).
 
+For the STMF1xx microcontroller, running at 72MHz, the default clock divisor is fine. For the 120MHz models (E.g. STM32F207Z), uncomment the define for the appropriate frequency in stlink-trace.c
+
 Build
 -----
 Eclipse project files can be used. Alternatively use the following:

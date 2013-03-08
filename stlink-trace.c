@@ -15,6 +15,13 @@
 #define HEXDUMP 0
 #define ASYNC	0
 
+// for the STM32F107Z, system clock is 72MHz
+// (CLK/SWO_CLK) - 1 = (72MHz/2MHz) - 1 = 35 = 0x23
+#define CLOCK_DIVISOR = 0x00000023
+// for the STM32F207Z, system clock is 120MHz
+// (CLK/SWO_CLK) - 1 = (120MHz/2MHz) - 1 = 59 = 0x3B
+//#define CLOCK_DIVISOR = 0x0000003B
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -416,8 +423,8 @@ void EnableTrace()
 	// Set TPIU_CSPSR to enable trace port width of 2
 	Write32Bit(0xE0040004, 0x00000001);
 
-	// Set TPIU_ACPR clock divisor to 35
-	Write32Bit(0xE0040010, 0x00000023);			// from Keil program = (CLK/SWO_CLK) - 1 = (72MHz/2MHz) - 1 = 35 = 0x23
+	// Set TPIU_ACPR clock divisor
+	Write32Bit(0xE0040010, CLOCK_DIVISOR);
 
 	// Set TPIU_SPPR to Asynchronous SWO (NRZ)
 	Write32Bit(0xE00400F0, 0x00000002);
