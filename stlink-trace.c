@@ -17,10 +17,10 @@
 
 // for the STM32F107Z, system clock is 72MHz
 // (CLK/SWO_CLK) - 1 = (72MHz/2MHz) - 1 = 35 = 0x23
-#define CLOCK_DIVISOR = 0x00000023
+#define CLOCK_DIVISOR 0x00000023
 // for the STM32F207Z, system clock is 120MHz
 // (CLK/SWO_CLK) - 1 = (120MHz/2MHz) - 1 = 59 = 0x3B
-//#define CLOCK_DIVISOR = 0x0000003B
+//#define CLOCK_DIVISOR 0x0000003B
 
 #include <stdio.h>
 #include <stdlib.h>
